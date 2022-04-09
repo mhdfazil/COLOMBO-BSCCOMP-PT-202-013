@@ -1,0 +1,17 @@
+xcuserdata/
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+Packages
+xcuserdata
+*.xcodeproj
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+iOSInjectionProject/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+.build/
