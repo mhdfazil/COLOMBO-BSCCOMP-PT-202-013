@@ -15,10 +15,11 @@ struct Home: View {
             }
             .frame(alignment: .topLeading)
             VStack() {
-                
+                AdCard()
+                AdCard()
             }
             
-        }
+        }.navigationBarTitle("Home", displayMode: .inline)
     }
 }
 
