@@ -11,8 +11,9 @@ struct SignUp: View {
     @State var nic = ""
     @State var name = ""
     @State var dob = Date()
-    @State var gender = ""
+    @State var gender = "Male"
     @State var mobile = ""
+    @State var district = "Ampara"
     @State var email = ""
     @State var password = ""
     @State var cpassword = ""
@@ -27,37 +28,46 @@ struct SignUp: View {
     }()
     
     var body: some View {
-        VStack() {
-            Spacer()
-            Image("SignupImg")
-            Spacer()
-            Form {
-                ThemeTextField(title: "NIC", text: $nic)
-                ThemeTextField(title: "Name", text: $name)
-                DatePicker(selection: $dob, in: dateRange, displayedComponents: [.date], label: { Text("Date of Birth") })
-                    .padding(10)
-                Picker(selection: $gender, label: Text("Gender")) {
-                    Text("Male").tag("male")
-                    Text("Female").tag("female")
-                    Text("Other").tag("other")
-                }
-                    .padding(10)
-                    .pickerStyle(SegmentedPickerStyle())
-                ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
-                ThemeTextField(title: "Email", text: $email, keyboardType: .emailAddress)
-                ThemeTextField(title: "Password", text: $password)
-                ThemeTextField(title: "Confirm Password", text: $cpassword)
-                HStack {
-                    Spacer()
-                    Button("Sign Up") {
-                        
+        NavigationView {
+            VStack() {
+                Spacer()
+                Image("SignupImg")
+                Spacer()
+                Form {
+                    ThemeTextField(title: "NIC", text: $nic)
+                    ThemeTextField(title: "Name", text: $name)
+                    DatePicker(selection: $dob, in: dateRange, displayedComponents: [.date], label: { Text("Date of Birth") })
+                        .padding(.bottom, 10)
+                    Picker(selection: $gender, label: Text("Gender")) {
+                        Text("Male").tag("Male")
+                        Text("Female").tag("Female")
+                        Text("Other").tag("Other")
                     }
-                    Spacer()
+                    .padding(.bottom, 10)
+                    ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
+                    Picker(selection: $district, label: Text("District")) {
+                        ForEach(0..<districts.count) { index in
+                            Text(districts[index]).tag(districts[index])
+                        }
+                    }
+                    .padding(.bottom, 10)
+                    ThemeTextField(title: "Email", text: $email, keyboardType: .emailAddress)
+                    SecureField("Password", text: $password)
+                        .padding(.bottom, 10)
+                    SecureField("Confirm Password", text: $cpassword)
+                        .padding(.bottom, 10)
+                    HStack {
+                        Spacer()
+                        Button("Sign Up") {
+                            
+                        }
+                        Spacer()
+                    }
                 }
             }
+            .padding(10)
+            .navigationBarTitle("Sign Up", displayMode: .inline)
         }
-        .padding(10)
-        .navigationBarTitle("Sign Up", displayMode: .inline)
     }
 }
 

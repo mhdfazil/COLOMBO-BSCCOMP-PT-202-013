@@ -10,27 +10,60 @@ import SwiftUI
 struct SignIn: View {
     @State var nic = ""
     @State var password = ""
+    @State var isTermsViewActive = false
+    @State var isPrivacyViewActive = false
+    
+    let termsUrl = "https://google.com"
+    let privacyUrl = "https://google.com"
+    
     var body: some View {
-        VStack() {
-            Spacer()
-            Image("LoginImg")
-            Spacer()
-            Form {
-                ThemeTextField(title: "NIC", text: $nic)
-                ThemeTextField(title: "Password", text: $password)
-                HStack {
-                    Spacer()
-                    Button("Sign In") {
-                        
+        NavigationView {
+            VStack() {
+                Spacer()
+                Image("LoginImg")
+                Spacer()
+                Form {
+                    ThemeTextField(title: "NIC", text: $nic)
+                    ThemeTextField(title: "Password", text: $password)
+                    HStack {
+                        Spacer()
+                        Button("Sign In") {
+                            
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    Section {
+                        NavigationLink("Forget Password?", destination: ForgetPassword())
+                    }
                 }
+                Spacer()
+                HStack {
+                    Text("Don't have an account? ")
+                    NavigationLink("Register!", destination: SignUp())
+                }
+                .padding(.bottom, 10)
+                HStack {
+                    NavigationLink(
+                        destination: InlineWeb(url: URL(string: termsUrl)!).ignoresSafeArea(),
+                        isActive: $isTermsViewActive) {
+                        Button("Terms & Conditions ") {
+                            isTermsViewActive = true
+                        }
+                        .font(.footnote)
+                    }
+                    NavigationLink(
+                        destination: InlineWeb(url: URL(string: privacyUrl)!).ignoresSafeArea(),
+                        isActive: $isPrivacyViewActive) {
+                        Button("Privacy Policy") {
+                            isPrivacyViewActive = true
+                        }
+                        .font(.footnote)
+                    }
+                }
+                .padding(.bottom, 10)
             }
-            NavigationLink("Forget Password", destination: SignUp())
-            Spacer()
-            
+            .navigationBarTitle("Sign In", displayMode: .inline)
         }
-        .navigationBarTitle("Sign In", displayMode: .inline)
     }
 }
 

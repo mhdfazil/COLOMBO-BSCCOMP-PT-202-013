@@ -8,8 +8,43 @@
 import SwiftUI
 
 struct Account: View {
+    @State var mobile = "0777862675"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(alignment: .leading) {
+                Form() {
+                    Section(header: Text("Name")) {
+                        Text("Your Name")
+                    }
+                    Section(header: Text("NIC")) {
+                        Text("199711600020")
+                    }
+                    Section(header: Text("Date of Birth")) {
+                        Text("1997/04/25")
+                    }
+                    Section(header: Text("Gender")) {
+                        Text("Male")
+                    }
+                    Section(header: Text("Email")) {
+                        Text("mhdfazil79@gmail.com")
+                    }
+                    Section(header: Text("Mobile Number")) {
+                        ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
+                    }
+                    Section() {
+                        Button("Change Password") {
+                            
+                        }
+                    }
+                    Section {
+                        Button("Logout") {
+                            
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Account")
+        }
     }
 }
 

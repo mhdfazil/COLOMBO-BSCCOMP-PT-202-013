@@ -10,40 +10,47 @@ import SwiftUI
 struct AdCard: View {
     let url = URL(string: "https://www.goodreturns.in/img/2015/03/12-1426142991-land-home.jpg")!
     var body: some View {
-        VStack() {
             VStack() {
                 AsyncImage(
                     url: url,
                     placeholder: {Image("PlaceholderLand").resizable()}
                 )
-                    .frame(width: UIScreen.main.bounds.width - 20, height: 180, alignment: .top)
-                VStack() {
-                    Text("Advertisement Name")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.system(size: 24))
+                    .frame(width: .none, height: 180, alignment: .top)
+                VStack(alignment: .leading) {
                     Text("Rs. 120,000")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.system(size: 20))
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    Text("Advertisement Name")
+                        .font(.title)
+                        .fontWeight(.black)
+                        .foregroundColor(.primary)
+                        .lineLimit(2)
                     HStack() {
                         Image(systemName: "mappin.and.ellipse")
                         Text("District Name")
-                            .font(.system(size: 14))
+                            .font(.body)
+                            .foregroundColor(.secondary)
                         Spacer()
                         Image(systemName: "square.dashed")
                         Text("1200Sqft")
-                            .font(.system(size: 14))
+                            .font(.body)
+                            .foregroundColor(.secondary)
                         Spacer()
                         Image(systemName: "rectangle.portrait.topright.inset.filled")
                         Text("Land")
-                            .font(.system(size: 14))
+                            .font(.body)
+                            .foregroundColor(.secondary)
                     }
                     .padding(.top, 0.5)
                 }
-                .padding([.leading, .bottom, .trailing], 10)
+                .padding()
             }
-            .border(Color.gray, width: 1)
-        }
-        .padding(10)
+            .cornerRadius(8)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
+            .padding([.horizontal, .top])
     }
 }
 

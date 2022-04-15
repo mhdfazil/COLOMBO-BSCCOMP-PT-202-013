@@ -18,9 +18,7 @@ struct ThemeTextField: View {
                 .keyboardType(keyboardType)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-    //            .textFieldStyle(InputGreenLineStyle())
         }
-        .padding(.bottom, 10)
     }
 }
 
