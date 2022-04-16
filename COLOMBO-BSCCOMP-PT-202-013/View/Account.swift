@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct Account: View {
-    @State var mobile = "0777862675"
-    
+    @State var isEditPresented = false
     @ObservedObject var accountVM = AccountViewModel()
+    
+    let dateFormatter = DateFormatter()
     
     var body: some View {
         NavigationView {
@@ -23,7 +24,7 @@ struct Account: View {
                         Text(accountVM.user?.nic ?? "Your NIC")
                     }
                     Section(header: Text("Date of Birth")) {
-                        Text(String(accountVM.user?.dob ?? 11))
+                        Text(dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(accountVM.user?.dob ?? 0.0))))
                     }
                     Section(header: Text("Gender")) {
                         Text(accountVM.user?.gender ?? "Gender")
@@ -32,11 +33,19 @@ struct Account: View {
                         Text(accountVM.user?.email ?? "Your Email")
                     }
                     Section(header: Text("Mobile Number")) {
-                        ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
+                        Button(accountVM.user?.mobile ?? "0112345678") {
+                            isEditPresented = true
+                        }
+                        .fullScreenCover(isPresented: $isEditPresented) {
+                            EditAccount(mobile: accountVM.mobile, latitude: accountVM.user?.latitude ?? 0.0, longitude: accountVM.user?.longitude ?? 0.0)
+                        }
                     }
                     Section() {
-                        Button("Change Password") {
-                            
+                        Button("Reset Password") {
+                            accountVM.resetPassword()
+                        }
+                        .alert(isPresented: $accountVM.isResetPwdMailSend) {
+                            Alert(title: Text("Reset Password"), message: Text("Reset password mail has been sent to your email address."), dismissButton: .cancel(Text("Okay")))
                         }
                     }
                     Section {
@@ -50,6 +59,9 @@ struct Account: View {
             .navigationBarTitle("Account")
             .onAppear() {
                 accountVM.getUser()
+            }
+            .alert(isPresented: $accountVM.isError) {
+                Alert(title: Text("Missing something?"), message: Text(accountVM.errorMessage), dismissButton: .cancel(Text("Okay")))
             }
         }
     }

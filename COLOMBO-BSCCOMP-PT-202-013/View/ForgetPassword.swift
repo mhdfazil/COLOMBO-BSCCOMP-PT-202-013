@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct ForgetPassword: View {
+    @ObservedObject var accountVM = AccountViewModel()
+    @State var nic = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Form {
+                ThemeTextField(title: "Enter your NIC", text: $nic)
+                HStack {
+                    Spacer()
+                    Button("Continue") {
+                        accountVM.resetPasswordWithNic(nic: nic)
+                    }
+                    .alert(isPresented: $accountVM.isResetPwdMailSend) {
+                        Alert(title: Text("Reset Password"), message: Text("Reset password mail has been sent to your email address."), dismissButton: .cancel(Text("Okay")))
+                    }
+                    Spacer()
+                }
+            }
+        }
+        .navigationBarTitle("Reset Password")
+        .alert(isPresented: $accountVM.isError) {
+            Alert(title: Text("Missing something?"), message: Text(accountVM.errorMessage), dismissButton: .cancel(Text("Okay")))
+        }
     }
 }
 

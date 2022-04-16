@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct MyAds: View {
+    let arr = [1,2,3]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack() {
+                HStack {
+                    Spacer()
+                    Button("Add") {
+                        
+                    }
+                }
+                List(arr, id: \.self) { item in
+                        AdCard()
+                }
+                .listStyle(.grouped)
+            }
     }
 }
 

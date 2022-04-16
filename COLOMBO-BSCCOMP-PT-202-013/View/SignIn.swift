@@ -15,8 +15,8 @@ struct SignIn: View {
     
     @ObservedObject var signUpVM = SignUpViewModel()
     
-    let termsUrl = "https://google.com"
-    let privacyUrl = "https://google.com"
+    let termsUrl = "https://nibm-broker-70a6c.web.app/terms.html"
+    let privacyUrl = "https://nibm-broker-70a6c.web.app/privacy.html"
     
     var body: some View {
         NavigationView {

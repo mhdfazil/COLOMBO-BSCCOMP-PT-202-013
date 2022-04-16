@@ -18,4 +18,5 @@ struct Ad: Decodable, Identifiable {
     var district: String
     var images: [String]
     var deed: String
+    var nic: String?
 }

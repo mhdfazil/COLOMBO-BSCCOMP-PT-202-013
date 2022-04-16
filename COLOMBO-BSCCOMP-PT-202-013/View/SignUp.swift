@@ -46,14 +46,16 @@ struct SignUp: View {
                         Text("Female").tag("Female")
                         Text("Other").tag("Other")
                     }
-                    .padding(.bottom, 10)
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(false)
                     ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
                     Picker(selection: $district, label: Text("District")) {
                         ForEach(0..<districts.count) { index in
                             Text(districts[index]).tag(districts[index])
                         }
                     }
-                    .padding(.bottom, 10)
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(false)
                     ThemeTextField(title: "Email", text: $email, keyboardType: .emailAddress)
                     SecureField("Password", text: $password)
                     SecureField("Confirm Password", text: $cpassword)

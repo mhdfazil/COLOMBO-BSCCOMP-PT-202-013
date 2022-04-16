@@ -14,6 +14,9 @@ protocol DataService {
     func signIn(username: String, password: String, complete: @escaping (Result<Bool, Error>) -> ())
     func signUp(user: User, complete: @escaping (Result<Bool, Error>) -> ())
     func getUser(complete: @escaping (Result<User, Error>) -> ())
+    func sendResetPasswordMail(complete: @escaping (Result<Bool, Error>) -> ())
+    func updateAccount(mobile: String, longitude: Double, latitude: Double, complete: @escaping (Result<Bool, Error>) -> ())
+    func sendResetPasswordMailByNic(nic: String, complete: @escaping (Result<Bool, Error>) -> ())
 }
 
 class API: DataService {
@@ -78,6 +81,69 @@ class API: DataService {
                 case .success(let user):
                     print("City: \(user)")
                     complete(.success(user))
+                case .failure(let error):
+                    print("Error decoding city: \(error)")
+                    complete(.failure(error))
+            }
+        }
+    }
+    
+    func sendResetPasswordMail(complete: @escaping (Result<Bool, Error>) -> ()) {
+        guard let nic = UserDefaults.standard.string(forKey: "userNic") else {
+            complete(.failure("NIC not found"))
+            return
+        }
+        let userRef = db.collection("users").document(nic)
+        userRef.getDocument(as: User.self) { result in
+            switch result {
+                case .success(let user):
+                    print("User: \(user)")
+                    Auth.auth().sendPasswordReset(withEmail: user.email) { error in
+                        if error != nil {
+                            complete(.failure(error!))
+                            return
+                        }
+                        complete(.success(true))
+                    }
+                case .failure(let error):
+                    print("Error decoding user: \(error)")
+                    complete(.failure(error))
+            }
+        }
+    }
+    
+    func updateAccount(mobile: String, longitude: Double, latitude: Double, complete: @escaping (Result<Bool, Error>) -> ()) {
+        guard let nic = UserDefaults.standard.string(forKey: "userNic") else {
+            complete(.failure("NIC not found"))
+            return
+        }
+        let userRef = db.collection("users").document(nic)
+        userRef.updateData([
+            "mobile": mobile,
+            "longitude": longitude,
+            "latitude": latitude
+        ]) { err in
+            if err != nil {
+                complete(.failure(err!))
+                return
+            }
+            complete(.success(true))
+        }
+    }
+    
+    func sendResetPasswordMailByNic(nic: String, complete: @escaping (Result<Bool, Error>) -> ()) {
+        let userRef = db.collection("users").document(nic)
+        userRef.getDocument(as: User.self) { result in
+            switch result {
+                case .success(let user):
+                    print("User: \(user)")
+                    Auth.auth().sendPasswordReset(withEmail: user.email) { error in
+                        if error != nil {
+                            complete(.failure(error!))
+                            return
+                        }
+                        complete(.success(true))
+                    }
                 case .failure(let error):
                     print("Error decoding city: \(error)")
                     complete(.failure(error))

@@ -24,7 +24,7 @@ struct Home: View {
                     }
                     Spacer()
                 }
-                .padding([.bottom, .leading], 10)
+                .padding([.leading], 10)
                 List(arr, id: \.self) { item in
                         AdCard()
                 }

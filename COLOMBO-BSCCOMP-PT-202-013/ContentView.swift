@@ -18,7 +18,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }.tag("Search")
-            SignUp()
+            MyAds()
                 .tabItem {
                     Image(systemName: "circle.grid.cross")
                 }.tag("My Ads")
