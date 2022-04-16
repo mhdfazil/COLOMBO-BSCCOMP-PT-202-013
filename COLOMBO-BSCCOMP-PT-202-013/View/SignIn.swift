@@ -13,6 +13,8 @@ struct SignIn: View {
     @State var isTermsViewActive = false
     @State var isPrivacyViewActive = false
     
+    @ObservedObject var signUpVM = SignUpViewModel()
+    
     let termsUrl = "https://google.com"
     let privacyUrl = "https://google.com"
     
@@ -24,11 +26,11 @@ struct SignIn: View {
                 Spacer()
                 Form {
                     ThemeTextField(title: "NIC", text: $nic)
-                    ThemeTextField(title: "Password", text: $password)
+                    SecureField("Password", text: $password)
                     HStack {
                         Spacer()
                         Button("Sign In") {
-                            
+                            signUpVM.signIn(nic: nic, password: password)
                         }
                         Spacer()
                     }
@@ -63,6 +65,9 @@ struct SignIn: View {
                 .padding(.bottom, 10)
             }
             .navigationBarTitle("Sign In", displayMode: .inline)
+            .alert(isPresented: $signUpVM.isError) {
+                Alert(title: Text("Missing something?"), message: Text(signUpVM.errorMessage), dismissButton: .cancel(Text("Okay")))
+            }
         }
     }
 }

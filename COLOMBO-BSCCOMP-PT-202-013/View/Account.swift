@@ -9,24 +9,27 @@ import SwiftUI
 
 struct Account: View {
     @State var mobile = "0777862675"
+    
+    @ObservedObject var accountVM = AccountViewModel()
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 Form() {
                     Section(header: Text("Name")) {
-                        Text("Your Name")
+                        Text(accountVM.user?.name ?? "Your Name")
                     }
                     Section(header: Text("NIC")) {
-                        Text("199711600020")
+                        Text(accountVM.user?.nic ?? "Your NIC")
                     }
                     Section(header: Text("Date of Birth")) {
-                        Text("1997/04/25")
+                        Text(String(accountVM.user?.dob ?? 11))
                     }
                     Section(header: Text("Gender")) {
-                        Text("Male")
+                        Text(accountVM.user?.gender ?? "Gender")
                     }
                     Section(header: Text("Email")) {
-                        Text("mhdfazil79@gmail.com")
+                        Text(accountVM.user?.email ?? "Your Email")
                     }
                     Section(header: Text("Mobile Number")) {
                         ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
@@ -40,10 +43,14 @@ struct Account: View {
                         Button("Logout") {
                             
                         }
+                        .foregroundColor(Color.red)
                     }
                 }
             }
             .navigationBarTitle("Account")
+            .onAppear() {
+                accountVM.getUser()
+            }
         }
     }
 }

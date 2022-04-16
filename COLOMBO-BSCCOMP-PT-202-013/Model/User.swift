@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User: Decodable, Identifiable {
-    var id: Int
+struct User: Identifiable, Codable {
+    var id: Int?
     var name: String
     var nic: String
     var dob: Double
@@ -19,5 +19,5 @@ struct User: Decodable, Identifiable {
     var latitude: Double
     var longitude: Double
     var password: String
-    var cpassword: String
+    var cpassword: String?
 }

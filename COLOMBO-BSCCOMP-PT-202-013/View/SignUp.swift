@@ -18,6 +18,9 @@ struct SignUp: View {
     @State var password = ""
     @State var cpassword = ""
     
+    @ObservedObject var signUpVM = SignUpViewModel()
+    @ObservedObject var locationVM = LocationViewModel()
+    
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
         let startComponents = DateComponents(year: 1922, month: 1, day: 1)
@@ -53,13 +56,11 @@ struct SignUp: View {
                     .padding(.bottom, 10)
                     ThemeTextField(title: "Email", text: $email, keyboardType: .emailAddress)
                     SecureField("Password", text: $password)
-                        .padding(.bottom, 10)
                     SecureField("Confirm Password", text: $cpassword)
-                        .padding(.bottom, 10)
                     HStack {
                         Spacer()
                         Button("Sign Up") {
-                            
+                            signUp()
                         }
                         Spacer()
                     }
@@ -67,6 +68,21 @@ struct SignUp: View {
             }
             .padding(10)
             .navigationBarTitle("Sign Up", displayMode: .inline)
+            .alert(isPresented: $signUpVM.isError) {
+                Alert(title: Text("Missing something?"), message: Text(signUpVM.errorMessage), dismissButton: .cancel(Text("Okay")))
+            }
+        }
+    }
+    
+    func signUp() {
+        if locationVM.userLocation == nil {
+            locationVM.checkLocationServiceEnabled()
+        }
+        else {
+            let longitude = locationVM.userLocation?.coordinate.longitude ?? 0.0
+            let latitude = locationVM.userLocation?.coordinate.latitude ?? 0.0
+            let user = User(name: name, nic: nic, dob: dob.timeIntervalSince1970, gender: gender, email: email, mobile: mobile, district: district, latitude: latitude, longitude: longitude, password: password, cpassword: cpassword)
+            signUpVM.signUp(user: user)
         }
     }
 }
