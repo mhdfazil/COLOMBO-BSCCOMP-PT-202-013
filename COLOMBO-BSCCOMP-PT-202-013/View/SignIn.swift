@@ -19,55 +19,53 @@ struct SignIn: View {
     let privacyUrl = "https://nibm-broker-70a6c.web.app/privacy.html"
     
     var body: some View {
-        NavigationView {
-            VStack() {
-                Spacer()
-                Image("LoginImg")
-                Spacer()
-                Form {
-                    ThemeTextField(title: "NIC", text: $nic)
-                    SecureField("Password", text: $password)
-                    HStack {
-                        Spacer()
-                        Button("Sign In") {
-                            signUpVM.signIn(nic: nic, password: password)
-                        }
-                        Spacer()
-                    }
-                    Section {
-                        NavigationLink("Forget Password?", destination: ForgetPassword())
-                    }
-                }
-                Spacer()
+        VStack() {
+            Spacer()
+            Image("LoginImg")
+            Spacer()
+            Form {
+                ThemeTextField(title: "NIC", text: $nic)
+                SecureField("Password", text: $password)
                 HStack {
-                    Text("Don't have an account? ")
-                    NavigationLink("Register!", destination: SignUp())
-                }
-                .padding(.bottom, 10)
-                HStack {
-                    NavigationLink(
-                        destination: InlineWeb(url: URL(string: termsUrl)!).ignoresSafeArea(),
-                        isActive: $isTermsViewActive) {
-                        Button("Terms & Conditions ") {
-                            isTermsViewActive = true
-                        }
-                        .font(.footnote)
+                    Spacer()
+                    Button("Sign In") {
+                        signUpVM.signIn(nic: nic, password: password)
                     }
-                    NavigationLink(
-                        destination: InlineWeb(url: URL(string: privacyUrl)!).ignoresSafeArea(),
-                        isActive: $isPrivacyViewActive) {
-                        Button("Privacy Policy") {
-                            isPrivacyViewActive = true
-                        }
-                        .font(.footnote)
-                    }
+                    Spacer()
                 }
-                .padding(.bottom, 10)
+                Section {
+                    NavigationLink("Forget Password?", destination: ForgetPassword())
+                }
             }
-            .navigationBarTitle("Sign In", displayMode: .inline)
-            .alert(isPresented: $signUpVM.isError) {
-                Alert(title: Text("Missing something?"), message: Text(signUpVM.errorMessage), dismissButton: .cancel(Text("Okay")))
+            Spacer()
+            HStack {
+                Text("Don't have an account? ")
+                NavigationLink("Register!", destination: SignUp())
             }
+            .padding(.bottom, 10)
+            HStack {
+                NavigationLink(
+                    destination: InlineWeb(url: URL(string: termsUrl)!).ignoresSafeArea(),
+                    isActive: $isTermsViewActive) {
+                    Button("Terms & Conditions ") {
+                        isTermsViewActive = true
+                    }
+                    .font(.footnote)
+                }
+                NavigationLink(
+                    destination: InlineWeb(url: URL(string: privacyUrl)!).ignoresSafeArea(),
+                    isActive: $isPrivacyViewActive) {
+                    Button("Privacy Policy") {
+                        isPrivacyViewActive = true
+                    }
+                    .font(.footnote)
+                }
+            }
+            .padding(.bottom, 10)
+        }
+        .navigationBarTitle("Sign In", displayMode: .inline)
+        .alert(isPresented: $signUpVM.isError) {
+            Alert(title: Text("Missing something?"), message: Text(signUpVM.errorMessage), dismissButton: .cancel(Text("Okay")))
         }
     }
 }

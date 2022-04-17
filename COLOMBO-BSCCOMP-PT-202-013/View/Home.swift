@@ -9,30 +9,38 @@ import SwiftUI
 
 struct Home: View {
     @State var district = "All"
-    let arr = [1,2,3]
+    let authService = AuthService()
+    
     var body: some View {
-        ZStack(alignment: .top) {
-            VStack() {
-                HStack() {
-                    Text("Your District")
-                    Picker(selection: $district, label: Text("District")) {
-                        Text("All").tag("All").font(.body)
-                        ForEach(0..<districts.count) { index in
-                            Text(districts[index]).tag(districts[index])
-                                .font(.body)
+        NavigationView {
+            ZStack(alignment: .top) {
+                VStack() {
+                    HStack() {
+                        Text("Your District")
+                        Picker(selection: $district, label: Text("District")) {
+                            Text("All").tag("All").font(.body)
+                            ForEach(0..<districts.count) { index in
+                                Text(districts[index]).tag(districts[index])
+                                    .font(.body)
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding([.leading], 10)
+//                    List(arr, id: \.self) { item in
+//                            AdCard()
+//                    }
+//                    .listStyle(.grouped)
+    //                .listRowSeparator(.hidden)
+                    ScrollView() {
+                        ForEach(0..<4) { _ in
+                            AdCard()
                         }
                     }
-                    Spacer()
                 }
-                .padding([.leading], 10)
-                List(arr, id: \.self) { item in
-                        AdCard()
-                }
-                .listStyle(.grouped)
-//                .listRowSeparator(.hidden)
-            }
-            
-        }.navigationBarTitle("Home", displayMode: .inline)
+                
+            }.navigationBarTitle("Home", displayMode: .inline)
+        }
     }
 }
 

@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseFirestoreSwift
+import PhotosUI
 
 protocol DataService {
     func signIn(username: String, password: String, complete: @escaping (Result<Bool, Error>) -> ())
@@ -17,10 +18,12 @@ protocol DataService {
     func sendResetPasswordMail(complete: @escaping (Result<Bool, Error>) -> ())
     func updateAccount(mobile: String, longitude: Double, latitude: Double, complete: @escaping (Result<Bool, Error>) -> ())
     func sendResetPasswordMailByNic(nic: String, complete: @escaping (Result<Bool, Error>) -> ())
+    func signOut(complete: @escaping (Result<Bool, Error>) -> ())
+    func uploadImage(selectedImage: UIImage, path: String, completionBlock: @escaping (Result<String,Error>) -> ())
+    func addAd(ad: Ad, complete: @escaping (Result<Bool, Error>) -> ())
 }
 
 class API: DataService {
-    
     let db = Firestore.firestore()
     
     func signIn(username: String, password: String, complete: @escaping (Result<Bool, Error>) -> ()) {
@@ -148,6 +151,49 @@ class API: DataService {
                     print("Error decoding city: \(error)")
                     complete(.failure(error))
             }
+        }
+    }
+    
+    func signOut(complete: @escaping (Result<Bool, Error>) -> ()) {
+        do {
+            try Auth.auth().signOut()
+            complete(.success(true))
+        } catch let err {
+            print("Sign out error: \(err)")
+            complete(.failure(err))
+        }
+        UserDefaults.standard.removeObject(forKey: "userNic")
+        UserDefaults.standard.removeObject(forKey: "userId")
+    }
+    
+    func uploadImage(selectedImage: UIImage, path: String, completionBlock: @escaping (Result<String,Error>) -> ()) {
+        let storageRef = Storage.storage().reference()
+        let imageData = selectedImage.jpegData(compressionQuality: 0.8)
+        
+        guard imageData != nil else {
+            return
+        }
+        
+        let path = "/images/\(path)/\(UUID().uuidString).jpg"
+        let fileRef = storageRef.child(path)
+        
+        fileRef.putData(imageData!, metadata: nil) { metaData, error in
+            if(error == nil && metaData != nil) {
+                completionBlock(.success(path))
+            } else {
+                print("image upload error \(String(describing: error))")
+                completionBlock(.failure(error!))
+            }
+        }
+    }
+    
+    func addAd(ad: Ad, complete: @escaping (Result<Bool, Error>) -> ()) {
+        do {
+            try self.db.collection("ads").document(ad.id ?? UUID().uuidString).setData(from: ad)
+            complete(.success(true))
+        } catch let error {
+            print("Error writing ad to Firestore: \(error)")
+            complete(.failure(error))
         }
     }
 }

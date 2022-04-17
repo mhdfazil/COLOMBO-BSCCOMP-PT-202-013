@@ -106,4 +106,16 @@ class AccountViewModel: ObservableObject {
             }
         }
     }
+    
+    func logout() {
+        dataService.signOut() { result in
+            switch result {
+                case .success:
+                    print("Success")
+                case let .failure(error):
+                    print(error)
+                    self.isError = true
+            }
+        }
+    }
 }

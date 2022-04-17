@@ -31,48 +31,46 @@ struct SignUp: View {
     }()
     
     var body: some View {
-        NavigationView {
-            VStack() {
-                Spacer()
-                Image("SignupImg")
-                Spacer()
-                Form {
-                    ThemeTextField(title: "NIC", text: $nic)
-                    ThemeTextField(title: "Name", text: $name)
-                    DatePicker(selection: $dob, in: dateRange, displayedComponents: [.date], label: { Text("Date of Birth") })
-                        .padding(.bottom, 10)
-                    Picker(selection: $gender, label: Text("Gender")) {
-                        Text("Male").tag("Male")
-                        Text("Female").tag("Female")
-                        Text("Other").tag("Other")
-                    }
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(false)
-                    ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
-                    Picker(selection: $district, label: Text("District")) {
-                        ForEach(0..<districts.count) { index in
-                            Text(districts[index]).tag(districts[index])
-                        }
-                    }
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(false)
-                    ThemeTextField(title: "Email", text: $email, keyboardType: .emailAddress)
-                    SecureField("Password", text: $password)
-                    SecureField("Confirm Password", text: $cpassword)
-                    HStack {
-                        Spacer()
-                        Button("Sign Up") {
-                            signUp()
-                        }
-                        Spacer()
+        VStack() {
+            Spacer()
+            Image("SignupImg")
+            Spacer()
+            Form {
+                ThemeTextField(title: "NIC", text: $nic)
+                ThemeTextField(title: "Name", text: $name)
+                DatePicker(selection: $dob, in: dateRange, displayedComponents: [.date], label: { Text("Date of Birth") })
+                    .padding(.bottom, 10)
+                Picker(selection: $gender, label: Text("Gender")) {
+                    Text("Male").tag("Male")
+                    Text("Female").tag("Female")
+                    Text("Other").tag("Other")
+                }
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(false)
+                ThemeTextField(title: "Mobile Number", text: $mobile, keyboardType: .phonePad)
+                Picker(selection: $district, label: Text("District")) {
+                    ForEach(0..<districts.count) { index in
+                        Text(districts[index]).tag(districts[index])
                     }
                 }
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(false)
+                ThemeTextField(title: "Email", text: $email, keyboardType: .emailAddress)
+                SecureField("Password", text: $password)
+                SecureField("Confirm Password", text: $cpassword)
+                HStack {
+                    Spacer()
+                    Button("Sign Up") {
+                        signUp()
+                    }
+                    Spacer()
+                }
             }
-            .padding(10)
-            .navigationBarTitle("Sign Up", displayMode: .inline)
-            .alert(isPresented: $signUpVM.isError) {
-                Alert(title: Text("Missing something?"), message: Text(signUpVM.errorMessage), dismissButton: .cancel(Text("Okay")))
-            }
+        }
+        .padding(10)
+        .navigationBarTitle("Sign Up", displayMode: .inline)
+        .alert(isPresented: $signUpVM.isError) {
+            Alert(title: Text("Missing something?"), message: Text(signUpVM.errorMessage), dismissButton: .cancel(Text("Okay")))
         }
     }
     

@@ -8,21 +8,28 @@
 import SwiftUI
 
 struct MyAds: View {
-    let arr = [1,2,3]
+    let authService = AuthService()
     
     var body: some View {
+        NavigationView {
             VStack() {
-                HStack {
-                    Spacer()
-                    Button("Add") {
-                        
+                if !authService.isAuthenticated() {
+                    AccessDenied(text: "SignIn to view My Ads")
+                } else {
+                    HStack {
+                        Spacer()
+                        NavigationLink("Add", destination: AddAd())
+                    }
+                    .padding(.trailing)
+                    ScrollView(showsIndicators: false) {
+                        ForEach(0..<4) {_ in
+                            AdCard()
+                        }
                     }
                 }
-                List(arr, id: \.self) { item in
-                        AdCard()
-                }
-                .listStyle(.grouped)
             }
+            .navigationBarTitle("My Ads", displayMode: .inline)
+        }
     }
 }
 

@@ -26,6 +26,9 @@ extension String {
         let mobilePred = NSPredicate(format:"SELF MATCHES %@", mobileRegEx)
         return mobilePred.evaluate(with: self)
     }
+    var isNumber: Bool {
+        return Int(self) != nil
+    }
 }
 
 extension String: LocalizedError {

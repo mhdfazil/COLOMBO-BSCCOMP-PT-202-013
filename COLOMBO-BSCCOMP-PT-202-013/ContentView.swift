@@ -14,7 +14,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }.tag("Home")
-            SignIn()
+            Search()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }.tag("Search")

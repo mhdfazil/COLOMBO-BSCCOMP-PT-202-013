@@ -7,16 +7,28 @@
 
 import Foundation
 
-struct Ad: Decodable, Identifiable {
-    var id: Int
+struct Ad: Codable, Identifiable {
+    var id: String? = UUID().uuidString
     var longitude: Double
     var latitude: Double
-    var price: Float
+    var price: Double
     var type: String
     var nearby: String
     var size: String
     var district: String
-    var images: [String]
-    var deed: String
+    var images: [String]?
+    var deed: String?
     var nic: String?
+    
+    mutating func setImages(images: [String]) {
+        self.images = images
+    }
+    
+    mutating func setDeed(deed: String) {
+        self.deed = deed
+    }
+    
+    mutating func setNic(nic: String) {
+        self.nic = nic
+    }
 }

@@ -15,7 +15,7 @@ struct AdCard: View {
                     url: url,
                     placeholder: {Image("PlaceholderLand").resizable()}
                 )
-                    .frame(width: .none, height: 180, alignment: .top)
+                    .frame(width: .none, height: 160, alignment: .top)
                 VStack(alignment: .leading) {
                     Text("Rs. 120,000")
                         .font(.headline)
