@@ -24,6 +24,7 @@ protocol DataService {
     func getAllAds(complete: @escaping (Result<[Ad], Error>) -> ())
     func getAdsByDistrict(district: String, complete: @escaping (Result<[Ad], Error>) -> ())
     func getAdsByNic(complete: @escaping (Result<[Ad], Error>) -> ())
+    func getAdsByFilter(district: String, type: String, min: String, max: String, complete: @escaping (Result<[Ad], Error>) -> ())
 }
 
 class API: DataService {
@@ -230,21 +231,21 @@ class API: DataService {
         var ads: [Ad] = []
         db.collection("ads").whereField("district", isEqualTo: district)
             .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                    complete(.failure(err))
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        do {
-                            try ads.append(document.data(as: Ad.self))
-                        }
-                        catch {
-                            return
-                        }
+            if let err = err {
+                print("Error getting documents: \(err)")
+                complete(.failure(err))
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    do {
+                        try ads.append(document.data(as: Ad.self))
                     }
-                    complete(.success(ads))
+                    catch {
+                        return
+                    }
                 }
+                complete(.success(ads))
+            }
         }
     }
     
@@ -256,21 +257,58 @@ class API: DataService {
         }
         db.collection("ads").whereField("nic", isEqualTo: nic)
             .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                    complete(.failure(err))
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        do {
-                            try ads.append(document.data(as: Ad.self))
-                        }
-                        catch {
-                            return
-                        }
+            if let err = err {
+                print("Error getting documents: \(err)")
+                complete(.failure(err))
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    do {
+                        try ads.append(document.data(as: Ad.self))
                     }
-                    complete(.success(ads))
+                    catch {
+                        return
+                    }
                 }
+                complete(.success(ads))
+            }
+        }
+    }
+    
+    func getAdsByFilter(district: String, type: String, min: String, max: String, complete: @escaping (Result<[Ad], Error>) -> ()) {
+        var ads: [Ad] = []
+        
+        var query: Query = db.collection("ads")
+        
+        if district != "All" && !district.isEmpty {
+            query = query.whereField("district", isEqualTo: district)
+        }
+        if !type.isEmpty && type != "All" {
+            query = query.whereField("type", isEqualTo: type)
+        }
+        if !min.isEmpty && min.isNumber {
+            query = query.whereField("price", isGreaterThanOrEqualTo: Double(min) ?? 0)
+        }
+        if !max.isEmpty && max.isNumber {
+            query = query.whereField("price", isLessThanOrEqualTo: Double(max) ?? 1000000)
+        }
+        
+        query.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                complete(.failure(err))
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    do {
+                        try ads.append(document.data(as: Ad.self))
+                    }
+                    catch {
+                        return
+                    }
+                }
+                complete(.success(ads))
+            }
         }
     }
 }

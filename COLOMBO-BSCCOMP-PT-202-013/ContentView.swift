@@ -14,10 +14,6 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }.tag("Home")
-            Search()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                }.tag("Search")
             MyAds()
                 .tabItem {
                     Image(systemName: "circle.grid.cross")

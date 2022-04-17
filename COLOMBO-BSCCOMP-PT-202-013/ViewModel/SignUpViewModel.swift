@@ -60,6 +60,7 @@ class SignUpViewModel: ObservableObject {
                     case .success:
                         print("Success")
                         self.isLoading = false
+                        self.isSignUpSuccess = true
                     case let .failure(error):
                         print(error)
                         self.isLoading = false

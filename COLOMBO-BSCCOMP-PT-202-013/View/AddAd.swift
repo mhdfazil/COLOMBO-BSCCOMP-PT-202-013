@@ -48,9 +48,8 @@ struct AddAd: View {
                     Button("Select Location") {
                         if locationVM.userLocation == nil {
                             locationVM.checkLocationServiceEnabled()
-                        } else {
-                            isMapShowing = true
                         }
+                        isMapShowing = true
                     }
                     .fullScreenCover(isPresented: $isMapShowing) {
                         MapView(locations: $locations)

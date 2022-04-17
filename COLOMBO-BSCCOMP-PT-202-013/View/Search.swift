@@ -12,6 +12,7 @@ struct Search: View {
     @State var isShowingFilter = false
     
     @ObservedObject var authVM = AuthViewModel()
+    @ObservedObject var adVm = AdViewModel()
     
     var body: some View {
         NavigationView {
@@ -19,8 +20,17 @@ struct Search: View {
                 if !authVM.isAuthenticated {
                     AccessDenied(text: "SignIn to Search desired properties")
                 } else {
-                    SearchBar(searchText: $searchText)
-                        .padding(.top, -10)
+                    HStack {
+                        SearchBar(searchText: $searchText)
+                        Button("Search") {
+                            
+                        }
+                        .padding(.trailing, 10)
+                        .foregroundColor(.blue)
+                        
+                    }
+                    
+                    Spacer()
                 }
             }
             .navigationBarTitle("Search")

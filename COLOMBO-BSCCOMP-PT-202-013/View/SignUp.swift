@@ -18,6 +18,7 @@ struct SignUp: View {
     @State var password = ""
     @State var cpassword = ""
     
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var signUpVM = SignUpViewModel()
     @ObservedObject var locationVM = LocationViewModel()
     
@@ -64,6 +65,11 @@ struct SignUp: View {
                         signUp()
                     }
                     Spacer()
+                }
+                .alert(isPresented: $signUpVM.isSignUpSuccess) {
+                    Alert(title: Text("Successfull"), message: Text("You have successfully Registered with us!"), dismissButton: .cancel(Text("Okay"), action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }))
                 }
             }
         }

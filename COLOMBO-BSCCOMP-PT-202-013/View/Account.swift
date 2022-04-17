@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Account: View {
     @State var isEditPresented = false
+    @State var isLogoutConfirmPresented = false
     @ObservedObject var accountVM = AccountViewModel()
     @ObservedObject var authVM = AuthViewModel()
     
@@ -54,9 +55,19 @@ struct Account: View {
                         }
                         Section {
                             Button("Logout") {
-                                accountVM.logout()
+                                isLogoutConfirmPresented = true
                             }
                             .foregroundColor(Color.red)
+                        }
+                        .alert(isPresented: $isLogoutConfirmPresented) {
+                            Alert(
+                                title: Text("Are you sure you want to logout?"),
+                                message: Text("We will miss you."),
+                                primaryButton: .destructive(Text("Logout")) {
+                                    accountVM.logout()
+                                },
+                                secondaryButton: .cancel()
+                            )
                         }
                     }
                     .onAppear() {

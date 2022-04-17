@@ -172,4 +172,54 @@ class AdViewModel: ObservableObject {
             }
         }
     }
+    
+    func validatedAdFilter(min: String, max: String) -> Bool {
+        if !min.isEmpty && !min.isNumber {
+            self.isError = true
+            self.errorMessage = "Enter a valid min price"
+            return false
+        } else if !max.isEmpty && !max.isNumber {
+            self.isError = true
+            self.errorMessage = "Enter a valid max price"
+            return false
+        }
+        else if !min.isEmpty && !max.isEmpty {
+            if Double(max) ?? 1 <= Double(min) ?? 0 {
+                self.isError = true
+                self.errorMessage = "Max price should be greater than min price"
+                return false
+            }
+        }
+        return true
+    }
+    
+    func getAdsByFilter(district: String, min: String, max: String, type: String) {
+        if !min.isEmpty && !min.isNumber {
+            self.isError = true
+            self.errorMessage = "Enter a valid min price"
+        } else if !max.isEmpty && !max.isNumber {
+            self.isError = true
+            self.errorMessage = "Enter a valid max price"
+        }
+        else if !min.isEmpty && !max.isEmpty {
+            if Double(max) ?? 1 <= Double(min) ?? 0 {
+                self.isError = true
+                self.errorMessage = "Max price should be greater than min price"
+            }
+        } else {
+            isLoading = true
+            dataService.getAdsByFilter(district: district, type: type, min: min, max: max) { result in
+                switch result {
+                    case .success(let ads):
+                        self.isError = false
+                        self.isLoading = false
+                        self.ads = ads
+                    case .failure(let err):
+                        self.isLoading = false
+                        self.isError = true
+                        self.errorMessage = err.localizedDescription
+                }
+            }
+        }
+    }
 }

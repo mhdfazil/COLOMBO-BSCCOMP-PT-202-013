@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignIn: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var nic = ""
     @State var password = ""
     @State var isTermsViewActive = false
@@ -32,6 +33,11 @@ struct SignIn: View {
                         signUpVM.signIn(nic: nic, password: password)
                     }
                     Spacer()
+                }
+                .alert(isPresented: $signUpVM.isSignInSuccess) {
+                    Alert(title: Text("Successfull"), message: Text("You have successfully Signed In"), dismissButton: .cancel(Text("Okay"), action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }))
                 }
                 Section {
                     NavigationLink("Forget Password?", destination: ForgetPassword())

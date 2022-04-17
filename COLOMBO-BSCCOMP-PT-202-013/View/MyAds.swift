@@ -24,9 +24,19 @@ struct MyAds: View {
                         NavigationLink("Add", destination: AddAd())
                     }
                     .padding(.trailing)
-                    ScrollView(showsIndicators: false) {
-                        ForEach(adVM.ads, id: \.self) {
-                            AdCard(ad: $0)
+                    
+                    if adVM.ads.count <= 0 {
+                        Spacer()
+                        Text("No ads found. Add your property ads to view here.")
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
+                    else {
+                        ScrollView(showsIndicators: false) {
+                            ForEach(adVM.ads, id: \.self) {
+                                AdCard(ad: $0)
+                            }
                         }
                     }
                 }

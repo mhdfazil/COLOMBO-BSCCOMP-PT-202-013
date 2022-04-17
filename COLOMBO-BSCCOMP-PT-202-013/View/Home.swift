@@ -9,6 +9,12 @@ import SwiftUI
 
 struct Home: View {
     @State var district = "All"
+    @State var isFilterShowing = false
+    @State var type = ""
+    @State var minPrice = ""
+    @State var maxPrice = ""
+    @State var isFilterApplied = false
+    
     @ObservedObject var adVM = AdViewModel()
     @ObservedObject var authVM = AuthViewModel()
     
@@ -21,13 +27,28 @@ struct Home: View {
                         Text("All").tag("All").font(.body)
                         ForEach(0..<districts.count) { index in
                             Text(districts[index]).tag(districts[index])
-                                .font(.body)
                         }
                     }
                     .onChange(of: district) { tag in
                         adVM.getAds(district: district)
                     }
                     Spacer()
+                    if authVM.isAuthenticated {
+                        Button(action: {
+                            isFilterApplied = false
+                            isFilterShowing = true
+                        }) {
+                            Image(systemName: "slider.horizontal.3")
+                                .padding(.trailing, 10)
+                        }
+                        .sheet(isPresented: $isFilterShowing, onDismiss: {
+                            if isFilterApplied {
+                                adVM.getAdsByFilter(district: district, min: minPrice, max: maxPrice, type: type)
+                            }
+                        }) {
+                                AdFilter(type: $type, minPrice: $minPrice, maxPrice: $maxPrice, isFilterApplied: $isFilterApplied)
+                        }
+                    }
                 }
                 .padding([.leading], 10)
                 ScrollView() {
