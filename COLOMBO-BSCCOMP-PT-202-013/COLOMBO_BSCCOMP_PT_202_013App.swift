@@ -10,10 +10,13 @@ import Firebase
 
 @main
 struct COLOMBO_BSCCOMP_PT_202_013App: App {
+    @ObservedObject var appState = AppState()
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(appState)
         }
     }
 }

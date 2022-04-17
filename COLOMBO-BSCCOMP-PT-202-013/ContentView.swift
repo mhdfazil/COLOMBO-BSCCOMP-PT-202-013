@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
         TabView() {
             Home()
                 .tabItem {
                     Image(systemName: "house")
                 }.tag("Home")
+                .id(appState.rootViewId)
             MyAds()
                 .tabItem {
                     Image(systemName: "circle.grid.cross")

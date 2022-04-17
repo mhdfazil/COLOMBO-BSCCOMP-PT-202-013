@@ -18,7 +18,7 @@ struct SignUp: View {
     @State var password = ""
     @State var cpassword = ""
     
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var appState: AppState
     @ObservedObject var signUpVM = SignUpViewModel()
     @ObservedObject var locationVM = LocationViewModel()
     
@@ -68,7 +68,7 @@ struct SignUp: View {
                 }
                 .alert(isPresented: $signUpVM.isSignUpSuccess) {
                     Alert(title: Text("Successfull"), message: Text("You have successfully Registered with us!"), dismissButton: .cancel(Text("Okay"), action: {
-                        presentationMode.wrappedValue.dismiss()
+                        appState.rootViewId = UUID()
                     }))
                 }
             }
@@ -84,12 +84,10 @@ struct SignUp: View {
         if locationVM.userLocation == nil {
             locationVM.checkLocationServiceEnabled()
         }
-        else {
-            let longitude = locationVM.userLocation?.coordinate.longitude ?? 0.0
-            let latitude = locationVM.userLocation?.coordinate.latitude ?? 0.0
-            let user = User(name: name, nic: nic, dob: dob.timeIntervalSince1970, gender: gender, email: email, mobile: mobile, district: district, latitude: latitude, longitude: longitude, password: password, cpassword: cpassword)
-            signUpVM.signUp(user: user)
-        }
+        let longitude = locationVM.userLocation?.coordinate.longitude ?? 0.0
+        let latitude = locationVM.userLocation?.coordinate.latitude ?? 0.0
+        let user = User(name: name, nic: nic, dob: dob.timeIntervalSince1970, gender: gender, email: email, mobile: mobile, district: district, latitude: latitude, longitude: longitude, password: password, cpassword: cpassword)
+        signUpVM.signUp(user: user)
     }
 }
 

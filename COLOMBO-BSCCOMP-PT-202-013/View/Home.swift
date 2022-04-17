@@ -15,6 +15,8 @@ struct Home: View {
     @State var maxPrice = ""
     @State var isFilterApplied = false
     
+    @EnvironmentObject var appState: AppState
+    
     @ObservedObject var adVM = AdViewModel()
     @ObservedObject var authVM = AuthViewModel()
     
@@ -51,9 +53,19 @@ struct Home: View {
                     }
                 }
                 .padding([.leading], 10)
-                ScrollView() {
-                    ForEach(adVM.ads, id: \.self) {
-                        AdCard(ad: $0)
+                
+                if adVM.ads.count <= 0 {
+                    Spacer()
+                    Text("No ads found. New ads will be available soon!.")
+                        .padding(.horizontal)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                }
+                else {
+                    ScrollView() {
+                        ForEach(adVM.ads, id: \.self) {
+                            AdCard(ad: $0)
+                        }
                     }
                 }
             }
