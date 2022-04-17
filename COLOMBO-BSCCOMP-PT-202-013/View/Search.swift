@@ -11,12 +11,12 @@ struct Search: View {
     @State var searchText = ""
     @State var isShowingFilter = false
     
-    let authService = AuthService()
+    @ObservedObject var authVM = AuthViewModel()
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                if !authService.isAuthenticated() {
+                if !authVM.isAuthenticated {
                     AccessDenied(text: "SignIn to Search desired properties")
                 } else {
                     SearchBar(searchText: $searchText)
@@ -24,6 +24,12 @@ struct Search: View {
                 }
             }
             .navigationBarTitle("Search")
+            .onAppear() {
+                authVM.listen()
+            }
+            .onDisappear() {
+                authVM.unListen()
+            }
         }
     }
 }

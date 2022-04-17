@@ -8,40 +8,38 @@
 import SwiftUI
 
 struct AdCard: View {
-    let url = URL(string: "https://www.goodreturns.in/img/2015/03/12-1426142991-land-home.jpg")!
+    var ad: Ad
+    @ObservedObject var authVM = AuthViewModel()
+    
     var body: some View {
+        NavigationLink(destination: authVM.isAuthenticated ? AnyView(AdDetail(ad: ad)) : AnyView(SignIn())) {
             VStack() {
                 AsyncImage(
-                    url: url,
+                    url: URL(string: ad.images?[0] ?? "")!,
                     placeholder: {Image("PlaceholderLand").resizable()}
                 )
                     .frame(width: .none, height: 160, alignment: .top)
                 VStack(alignment: .leading) {
-                    Text("Rs. 120,000")
+                    Text("RS \(String(format: "%.2f", ad.price))")
                         .font(.headline)
                         .foregroundColor(.secondary)
-                    Text("Advertisement Name")
+                    Text("\(ad.size)SqFt \(ad.type)")
                         .font(.title)
-                        .fontWeight(.black)
                         .foregroundColor(.primary)
                         .lineLimit(2)
                     HStack() {
                         Image(systemName: "mappin.and.ellipse")
-                        Text("District Name")
+                        Text(ad.district)
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                            .padding(.trailing, 10)
+                        Image(systemName: "globe.americas")
+                        Text(ad.nearby)
                             .font(.body)
                             .foregroundColor(.secondary)
                         Spacer()
-                        Image(systemName: "square.dashed")
-                        Text("1200Sqft")
-                            .font(.body)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        Image(systemName: "rectangle.portrait.topright.inset.filled")
-                        Text("Land")
-                            .font(.body)
-                            .foregroundColor(.secondary)
                     }
-                    .padding(.top, 0.5)
+                    .padding(.top, 0.1)
                 }
                 .padding()
             }
@@ -51,11 +49,13 @@ struct AdCard: View {
                     .stroke(Color.gray, lineWidth: 1)
             )
             .padding([.horizontal, .top])
+        }
     }
 }
 
 struct AdCard_Previews: PreviewProvider {
+    static var ad = Ad(longitude: 0, latitude: 0, price: 15000, type: "Land", nearby: "City", size: "650", district: "Ampara", images: ["https://www.goodreturns.in/img/2015/03/12-1426142991-land-home.jpg"], nic: "199711600020")
     static var previews: some View {
-        AdCard()
+        AdCard(ad: ad)
     }
 }

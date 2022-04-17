@@ -19,8 +19,11 @@ protocol DataService {
     func updateAccount(mobile: String, longitude: Double, latitude: Double, complete: @escaping (Result<Bool, Error>) -> ())
     func sendResetPasswordMailByNic(nic: String, complete: @escaping (Result<Bool, Error>) -> ())
     func signOut(complete: @escaping (Result<Bool, Error>) -> ())
-    func uploadImage(selectedImage: UIImage, path: String, completionBlock: @escaping (Result<String,Error>) -> ())
+    func uploadImage(selectedImage: UIImage, path: String, complete: @escaping (Result<String,Error>) -> ())
     func addAd(ad: Ad, complete: @escaping (Result<Bool, Error>) -> ())
+    func getAllAds(complete: @escaping (Result<[Ad], Error>) -> ())
+    func getAdsByDistrict(district: String, complete: @escaping (Result<[Ad], Error>) -> ())
+    func getAdsByNic(complete: @escaping (Result<[Ad], Error>) -> ())
 }
 
 class API: DataService {
@@ -160,13 +163,13 @@ class API: DataService {
             complete(.success(true))
         } catch let err {
             print("Sign out error: \(err)")
-            complete(.failure(err))
+            complete(.success(true))
         }
         UserDefaults.standard.removeObject(forKey: "userNic")
         UserDefaults.standard.removeObject(forKey: "userId")
     }
     
-    func uploadImage(selectedImage: UIImage, path: String, completionBlock: @escaping (Result<String,Error>) -> ()) {
+    func uploadImage(selectedImage: UIImage, path: String, complete: @escaping (Result<String,Error>) -> ()) {
         let storageRef = Storage.storage().reference()
         let imageData = selectedImage.jpegData(compressionQuality: 0.8)
         
@@ -179,10 +182,15 @@ class API: DataService {
         
         fileRef.putData(imageData!, metadata: nil) { metaData, error in
             if(error == nil && metaData != nil) {
-                completionBlock(.success(path))
+                fileRef.downloadURL() { url, err in
+                    if err != nil {
+                        complete(.failure(err!))
+                    }
+                    complete(.success(url?.absoluteString ?? ""))
+                }
             } else {
                 print("image upload error \(String(describing: error))")
-                completionBlock(.failure(error!))
+                complete(.failure(error!))
             }
         }
     }
@@ -194,6 +202,75 @@ class API: DataService {
         } catch let error {
             print("Error writing ad to Firestore: \(error)")
             complete(.failure(error))
+        }
+    }
+    
+    func getAllAds(complete: @escaping (Result<[Ad], Error>) -> ()) {
+        var ads: [Ad] = []
+        db.collection("ads").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                complete(.failure(err))
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    do {
+                        try ads.append(document.data(as: Ad.self))
+                    }
+                    catch {
+                        return
+                    }
+                }
+                complete(.success(ads))
+            }
+        }
+    }
+    
+    func getAdsByDistrict(district: String, complete: @escaping (Result<[Ad], Error>) -> ()) {
+        var ads: [Ad] = []
+        db.collection("ads").whereField("district", isEqualTo: district)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    complete(.failure(err))
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        do {
+                            try ads.append(document.data(as: Ad.self))
+                        }
+                        catch {
+                            return
+                        }
+                    }
+                    complete(.success(ads))
+                }
+        }
+    }
+    
+    func getAdsByNic(complete: @escaping (Result<[Ad], Error>) -> ()) {
+        var ads: [Ad] = []
+        guard let nic = UserDefaults.standard.string(forKey: "userNic") else {
+            complete(.failure("NIC not found"))
+            return
+        }
+        db.collection("ads").whereField("nic", isEqualTo: nic)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    complete(.failure(err))
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        do {
+                            try ads.append(document.data(as: Ad.self))
+                        }
+                        catch {
+                            return
+                        }
+                    }
+                    complete(.success(ads))
+                }
         }
     }
 }

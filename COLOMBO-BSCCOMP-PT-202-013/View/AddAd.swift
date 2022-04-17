@@ -46,7 +46,11 @@ struct AddAd: View {
                 ThemeTextField(title: "Size in SqFt", text: $size, keyboardType: .numberPad)
                 Section(header: Text("Location")) {
                     Button("Select Location") {
-                        isMapShowing = true
+                        if locationVM.userLocation == nil {
+                            locationVM.checkLocationServiceEnabled()
+                        } else {
+                            isMapShowing = true
+                        }
                     }
                     .fullScreenCover(isPresented: $isMapShowing) {
                         MapView(locations: $locations)
@@ -75,7 +79,6 @@ struct AddAd: View {
                     Button("Add Advertisement") {
                         addAd()
                     }
-                    .foregroundColor(.green)
                     Spacer()
                 }
                 .alert(isPresented: $adVM.isSuccess) {

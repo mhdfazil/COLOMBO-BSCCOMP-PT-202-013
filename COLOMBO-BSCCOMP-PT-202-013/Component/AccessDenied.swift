@@ -14,6 +14,7 @@ struct AccessDenied: View {
             Image("DeniedImg")
                 .padding(.bottom, 20)
             NavigationLink(text, destination: SignIn())
+                .isDetailLink(false)
         }
     }
 }

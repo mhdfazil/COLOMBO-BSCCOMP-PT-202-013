@@ -14,6 +14,7 @@ class AdViewModel: ObservableObject {
     @Published var isError = false
     @Published var isSuccess = false
     @Published var errorMessage = ""
+    @Published var ads = [Ad]()
     
     let dataService: DataService
     
@@ -72,6 +73,7 @@ class AdViewModel: ObservableObject {
                     switch result {
                         case .success(let path):
                             imagePaths.append(path)
+                            ad.setImages(images: imagePaths)
                             dispatchGroup.leave()
                         case .failure(let err):
                             print("Images upload error.......\(err.localizedDescription)")
@@ -82,7 +84,6 @@ class AdViewModel: ObservableObject {
                     }
                 }
             }
-            ad.setImages(images: imagePaths)
             
 //            upload deed image
             dispatchGroup.enter()
@@ -123,6 +124,51 @@ class AdViewModel: ObservableObject {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func getAds(district: String) {
+        if district == "All" {
+            dataService.getAllAds() { result in
+                switch result {
+                    case .success(let ads):
+                        self.isError = false
+                        self.isLoading = false
+                        self.ads = ads
+                    case .failure(let err):
+                        self.isLoading = false
+                        self.isError = true
+                        self.errorMessage = err.localizedDescription
+                }
+            }
+        } else {
+            dataService.getAdsByDistrict(district: district) { result in
+                switch result {
+                    case .success(let ads):
+                        self.isError = false
+                        self.isLoading = false
+                        self.ads = ads
+                    case .failure(let err):
+                        self.isLoading = false
+                        self.isError = true
+                        self.errorMessage = err.localizedDescription
+                }
+            }
+        }
+    }
+    
+    func getAdsByNic() {
+        dataService.getAdsByNic() { result in
+            switch result {
+                case .success(let ads):
+                    self.isError = false
+                    self.isLoading = false
+                    self.ads = ads
+                case .failure(let err):
+                    self.isLoading = false
+                    self.isError = true
+                    self.errorMessage = err.localizedDescription
             }
         }
     }

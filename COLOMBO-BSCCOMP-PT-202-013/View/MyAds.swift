@@ -10,6 +10,9 @@ import SwiftUI
 struct MyAds: View {
     let authService = AuthService()
     
+    @ObservedObject var adVM = AdViewModel()
+    @ObservedObject var authVM = AuthViewModel()
+    
     var body: some View {
         NavigationView {
             VStack() {
@@ -22,13 +25,20 @@ struct MyAds: View {
                     }
                     .padding(.trailing)
                     ScrollView(showsIndicators: false) {
-                        ForEach(0..<4) {_ in
-                            AdCard()
+                        ForEach(adVM.ads, id: \.self) {
+                            AdCard(ad: $0)
                         }
                     }
                 }
             }
-            .navigationBarTitle("My Ads", displayMode: .inline)
+            .navigationBarTitle("My Ads")
+            .onAppear() {
+                authVM.listen()
+                adVM.getAdsByNic()
+            }
+            .onDisappear() {
+                authVM.unListen()
+            }
         }
     }
 }

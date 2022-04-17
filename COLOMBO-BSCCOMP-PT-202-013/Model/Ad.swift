@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Ad: Codable, Identifiable {
+struct Ad: Codable, Identifiable, Hashable {
     var id: String? = UUID().uuidString
     var longitude: Double
     var latitude: Double

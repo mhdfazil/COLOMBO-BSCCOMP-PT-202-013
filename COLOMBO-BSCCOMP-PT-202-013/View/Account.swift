@@ -10,14 +10,14 @@ import SwiftUI
 struct Account: View {
     @State var isEditPresented = false
     @ObservedObject var accountVM = AccountViewModel()
+    @ObservedObject var authVM = AuthViewModel()
     
     let dateFormatter = DateFormatter()
-    let authService = AuthService()
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                if !authService.isAuthenticated() {
+                if !authVM.isAuthenticated {
                     AccessDenied()
                 } else {
                     Form() {
@@ -54,12 +54,13 @@ struct Account: View {
                         }
                         Section {
                             Button("Logout") {
-        //                            accountVM.logout
+                                accountVM.logout()
                             }
                             .foregroundColor(Color.red)
                         }
                     }
                     .onAppear() {
+                        authVM.checkAuthentication()
                         accountVM.getUser()
                     }
                 }
@@ -67,6 +68,12 @@ struct Account: View {
             .navigationBarTitle("Account")
             .alert(isPresented: $accountVM.isError) {
                 Alert(title: Text("Missing something?"), message: Text(accountVM.errorMessage), dismissButton: .cancel(Text("Okay")))
+            }
+            .onAppear() {
+                authVM.listen()
+            }
+            .onDisappear() {
+                authVM.unListen()
             }
         }
     }

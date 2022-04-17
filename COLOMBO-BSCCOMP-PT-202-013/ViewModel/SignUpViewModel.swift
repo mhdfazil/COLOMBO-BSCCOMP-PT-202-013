@@ -11,6 +11,8 @@ class SignUpViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isError = false
     @Published var errorMessage = ""
+    @Published var isSignInSuccess = false
+    @Published var isSignUpSuccess = false
     
     let dataService: DataService
     
@@ -89,6 +91,7 @@ class SignUpViewModel: ObservableObject {
                         self.isLoading = false
                         self.isError = false
                         self.errorMessage = ""
+                        self.isSignInSuccess = true
                     case let .failure(error):
                         print(error)
                         self.isLoading = false
