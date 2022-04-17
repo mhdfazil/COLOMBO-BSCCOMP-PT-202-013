@@ -97,6 +97,8 @@ class COLOMBO_BSCCOMP_PT_202_013Tests: XCTestCase {
         XCTAssertTrue(sut.ads.isEmpty)
         sut.getAdsByNic()
         XCTAssertEqual(sut.ads.count, 2)
+        XCTAssertEqual(sut.isError, false)
+        XCTAssertEqual(sut.errorMessage, "")
     }
 
 //    func testPerformanceExample() throws {
