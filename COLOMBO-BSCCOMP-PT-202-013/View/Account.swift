@@ -29,7 +29,7 @@ struct Account: View {
                             Text(accountVM.user?.nic ?? "")
                         }
                         Section(header: Text("Date of Birth")) {
-                            Text(dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(accountVM.user?.dob ?? 0.0))))
+                            Text(doubleToDateString(double: accountVM.user?.dob ?? 0))
                         }
                         Section(header: Text("Gender")) {
                             Text(accountVM.user?.gender ?? "")
@@ -87,6 +87,12 @@ struct Account: View {
                 authVM.unListen()
             }
         }
+    }
+    
+    func doubleToDateString(double: Double) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.string(from: Date(timeIntervalSince1970: double))
     }
 }
 

@@ -3,10 +3,6 @@ xcuserdata/
 **/xcshareddata/WorkspaceSettings.xcsettings
 Packages
 xcuserdata
-*.xcodeproj
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
 iOSInjectionProject/
 
 ## App packaging

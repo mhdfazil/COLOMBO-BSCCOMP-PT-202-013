@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		77228AE5280A13720004E419 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77228AE4280A13720004E419 /* ValidationError.swift */; };
+		77228AE7280A1C760004E419 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77228AE6280A1C760004E419 /* SignUpViewModel.swift */; };
+		77228AE9280A20220004E419 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77228AE8280A20220004E419 /* StringExtension.swift */; };
+		77228AEB280A28A30004E419 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77228AEA280A28A30004E419 /* LocationViewModel.swift */; };
+		77228AED280A5D340004E419 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77228AEC280A5D340004E419 /* AccountViewModel.swift */; };
+		772BE89B280AD85200654213 /* EditAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE89A280AD85200654213 /* EditAccount.swift */; };
+		772BE89D280ADAB800654213 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE89C280ADAB800654213 /* ChangePassword.swift */; };
+		772BE89F280B33B600654213 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE89E280B33B600654213 /* SearchBar.swift */; };
+		772BE8A3280B40EC00654213 /* AccessDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE8A2280B40EC00654213 /* AccessDenied.swift */; };
+		772BE8A5280B423B00654213 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE8A4280B423B00654213 /* AuthService.swift */; };
+		772BE8A7280B472800654213 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE8A6280B472800654213 /* ImagePicker.swift */; };
+		772BE8A9280B4E8200654213 /* AdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE8A8280B4E8200654213 /* AdViewModel.swift */; };
+		772BE8B3280B6D2C00654213 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BE8B2280B6D2C00654213 /* MapView.swift */; };
+		774A32F1280604A50003A6E8 /* AdCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A32F0280604A50003A6E8 /* AdCard.swift */; };
+		77825A1928016BCE00B4EBAE /* COLOMBO_BSCCOMP_PT_202_013App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77825A1828016BCE00B4EBAE /* COLOMBO_BSCCOMP_PT_202_013App.swift */; };
+		77825A1B28016BCE00B4EBAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77825A1A28016BCE00B4EBAE /* ContentView.swift */; };
+		77825A1D28016BD700B4EBAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77825A1C28016BD700B4EBAE /* Assets.xcassets */; };
+		77825A2028016BD700B4EBAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77825A1F28016BD700B4EBAE /* Preview Assets.xcassets */; };
+		77825A2A28016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77825A2928016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013Tests.swift */; };
+		77825A3428016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77825A3328016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITests.swift */; };
+		77825A3628016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77825A3528016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITestsLaunchTests.swift */; };
+		779C380A2807C1E200AAB38A /* ForgetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779C38092807C1E200AAB38A /* ForgetPassword.swift */; };
+		779C380C2809F6DD00AAB38A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779C380B2809F6DC00AAB38A /* User.swift */; };
+		779C380E2809F74F00AAB38A /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779C380D2809F74F00AAB38A /* Ad.swift */; };
+		779C38102809F8CF00AAB38A /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779C380F2809F8CF00AAB38A /* SignInViewModel.swift */; };
+		779C38122809FABD00AAB38A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779C38112809FABD00AAB38A /* API.swift */; };
+		77B0869A2802C04800703C60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B086992802C04800703C60 /* LaunchScreen.storyboard */; };
+		77B0869C28034A8500703C60 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0869B28034A8300703C60 /* Home.swift */; };
+		77B0869E28034BA900703C60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0869D28034BA900703C60 /* SceneDelegate.swift */; };
+		77D38C4228063CD5004EC73D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C4128063CD5004EC73D /* ImageLoader.swift */; };
+		77D38C44280643A6004EC73D /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C43280643A6004EC73D /* AsyncImage.swift */; };
+		77D38C4728076324004EC73D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 77D38C4628076324004EC73D /* FirebaseAuth */; };
+		77D38C4928076324004EC73D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 77D38C4828076324004EC73D /* FirebaseDatabase */; };
+		77D38C4B28076324004EC73D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 77D38C4A28076324004EC73D /* FirebaseFirestore */; };
+		77D38C4D28076324004EC73D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 77D38C4C28076324004EC73D /* FirebaseFirestoreSwift-Beta */; };
+		77D38C4F28076324004EC73D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 77D38C4E28076324004EC73D /* FirebaseStorage */; };
+		77D38C51280768F3004EC73D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D38C50280768F3004EC73D /* GoogleService-Info.plist */; };
+		77D38C5328077172004EC73D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C5228077172004EC73D /* Account.swift */; };
+		77D38C552807718C004EC73D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C542807718C004EC73D /* Search.swift */; };
+		77D38C57280771A3004EC73D /* MyAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C56280771A3004EC73D /* MyAds.swift */; };
+		77D38C592807737A004EC73D /* AddAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C582807737A004EC73D /* AddAd.swift */; };
+		77D38C5B28077415004EC73D /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C5A28077415004EC73D /* SignIn.swift */; };
+		77D38C5D28077427004EC73D /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C5C28077426004EC73D /* SignUp.swift */; };
+		77D38C5F2807776A004EC73D /* ThemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C5E2807776A004EC73D /* ThemeTextField.swift */; };
+		77D38C6128078C57004EC73D /* InlineWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C6028078C57004EC73D /* InlineWeb.swift */; };
+		77D38C632807A078004EC73D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D38C622807A078004EC73D /* Constants.swift */; };
+		77EBBFE7280C4DC400D98BA0 /* AdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBBFE6280C4DC300D98BA0 /* AdFilter.swift */; };
+		77EBBFE9280C73E800D98BA0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBBFE8280C73E800D98BA0 /* AppState.swift */; };
+		77F7844D280BB97300ABF30C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F7844C280BB97300ABF30C /* AuthViewModel.swift */; };
+		77F7844F280BC45700ABF30C /* AdDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F7844E280BC45700ABF30C /* AdDetail.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		77825A2628016BD700B4EBAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77825A0D28016BCE00B4EBAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77825A1428016BCE00B4EBAE;
+			remoteInfo = "COLOMBO-BSCCOMP-PT-202-013";
+		};
+		77825A3028016BD700B4EBAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77825A0D28016BCE00B4EBAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77825A1428016BCE00B4EBAE;
+			remoteInfo = "COLOMBO-BSCCOMP-PT-202-013";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		77228AE4280A13720004E419 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		77228AE6280A1C760004E419 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		77228AE8280A20220004E419 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		77228AEA280A28A30004E419 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		77228AEC280A5D340004E419 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		772BE89A280AD85200654213 /* EditAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccount.swift; sourceTree = "<group>"; };
+		772BE89C280ADAB800654213 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		772BE89E280B33B600654213 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		772BE8A2280B40EC00654213 /* AccessDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessDenied.swift; sourceTree = "<group>"; };
+		772BE8A4280B423B00654213 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		772BE8A6280B472800654213 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		772BE8A8280B4E8200654213 /* AdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewModel.swift; sourceTree = "<group>"; };
+		772BE8B2280B6D2C00654213 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		774A32F0280604A50003A6E8 /* AdCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCard.swift; sourceTree = "<group>"; };
+		77825A1528016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COLOMBO-BSCCOMP-PT-202-013.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77825A1828016BCE00B4EBAE /* COLOMBO_BSCCOMP_PT_202_013App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COLOMBO_BSCCOMP_PT_202_013App.swift; sourceTree = "<group>"; };
+		77825A1A28016BCE00B4EBAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		77825A1C28016BD700B4EBAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77825A1F28016BD700B4EBAE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		77825A2528016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COLOMBO-BSCCOMP-PT-202-013Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77825A2928016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COLOMBO_BSCCOMP_PT_202_013Tests.swift; sourceTree = "<group>"; };
+		77825A2F28016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COLOMBO-BSCCOMP-PT-202-013UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77825A3328016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COLOMBO_BSCCOMP_PT_202_013UITests.swift; sourceTree = "<group>"; };
+		77825A3528016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COLOMBO_BSCCOMP_PT_202_013UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		779C38092807C1E200AAB38A /* ForgetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassword.swift; sourceTree = "<group>"; };
+		779C380B2809F6DC00AAB38A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		779C380D2809F74F00AAB38A /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		779C380F2809F8CF00AAB38A /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		779C38112809FABD00AAB38A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		77B086992802C04800703C60 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		77B0869B28034A8300703C60 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		77B0869D28034BA900703C60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		77B086A028034DD100703C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		77D38C4128063CD5004EC73D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		77D38C43280643A6004EC73D /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		77D38C50280768F3004EC73D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77D38C5228077172004EC73D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		77D38C542807718C004EC73D /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		77D38C56280771A3004EC73D /* MyAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAds.swift; sourceTree = "<group>"; };
+		77D38C582807737A004EC73D /* AddAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAd.swift; sourceTree = "<group>"; };
+		77D38C5A28077415004EC73D /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		77D38C5C28077426004EC73D /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		77D38C5E2807776A004EC73D /* ThemeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTextField.swift; sourceTree = "<group>"; };
+		77D38C6028078C57004EC73D /* InlineWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineWeb.swift; sourceTree = "<group>"; };
+		77D38C622807A078004EC73D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		77EBBFE6280C4DC300D98BA0 /* AdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdFilter.swift; sourceTree = "<group>"; };
+		77EBBFE8280C73E800D98BA0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		77F7844C280BB97300ABF30C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		77F7844E280BC45700ABF30C /* AdDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetail.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77825A1228016BCE00B4EBAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77D38C4928076324004EC73D /* FirebaseDatabase in Frameworks */,
+				77D38C4D28076324004EC73D /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				77D38C4728076324004EC73D /* FirebaseAuth in Frameworks */,
+				77D38C4F28076324004EC73D /* FirebaseStorage in Frameworks */,
+				77D38C4B28076324004EC73D /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77825A2228016BD700B4EBAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77825A2C28016BD700B4EBAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		774A32EF2806043F0003A6E8 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				774A32F0280604A50003A6E8 /* AdCard.swift */,
+				77D38C43280643A6004EC73D /* AsyncImage.swift */,
+				77D38C5E2807776A004EC73D /* ThemeTextField.swift */,
+				772BE89E280B33B600654213 /* SearchBar.swift */,
+				772BE8A2280B40EC00654213 /* AccessDenied.swift */,
+				772BE8A6280B472800654213 /* ImagePicker.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		77825A0C28016BCE00B4EBAE = {
+			isa = PBXGroup;
+			children = (
+				77825A1728016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013 */,
+				77825A2828016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests */,
+				77825A3228016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests */,
+				77825A1628016BCE00B4EBAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		77825A1628016BCE00B4EBAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77825A1528016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013.app */,
+				77825A2528016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests.xctest */,
+				77825A2F28016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77825A1728016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013 */ = {
+			isa = PBXGroup;
+			children = (
+				774A32EF2806043F0003A6E8 /* Component */,
+				77B086A028034DD100703C60 /* Info.plist */,
+				77B0869F28034BBF00703C60 /* Utility */,
+				77B086982802C04800703C60 /* Data */,
+				77B086972802C03B00703C60 /* ViewModel */,
+				77B086962802C02500703C60 /* View */,
+				77B086952802C01300703C60 /* Model */,
+				77825A1828016BCE00B4EBAE /* COLOMBO_BSCCOMP_PT_202_013App.swift */,
+				77D38C50280768F3004EC73D /* GoogleService-Info.plist */,
+				77825A1A28016BCE00B4EBAE /* ContentView.swift */,
+				77825A1C28016BD700B4EBAE /* Assets.xcassets */,
+				77825A1E28016BD700B4EBAE /* Preview Content */,
+			);
+			path = "COLOMBO-BSCCOMP-PT-202-013";
+			sourceTree = "<group>";
+		};
+		77825A1E28016BD700B4EBAE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				77825A1F28016BD700B4EBAE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77825A2828016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests */ = {
+			isa = PBXGroup;
+			children = (
+				77825A2928016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013Tests.swift */,
+			);
+			path = "COLOMBO-BSCCOMP-PT-202-013Tests";
+			sourceTree = "<group>";
+		};
+		77825A3228016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests */ = {
+			isa = PBXGroup;
+			children = (
+				77825A3328016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITests.swift */,
+				77825A3528016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITestsLaunchTests.swift */,
+			);
+			path = "COLOMBO-BSCCOMP-PT-202-013UITests";
+			sourceTree = "<group>";
+		};
+		77B086952802C01300703C60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				779C380B2809F6DC00AAB38A /* User.swift */,
+				779C380D2809F74F00AAB38A /* Ad.swift */,
+				779C380F2809F8CF00AAB38A /* SignInViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77B086962802C02500703C60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77B086992802C04800703C60 /* LaunchScreen.storyboard */,
+				77B0869B28034A8300703C60 /* Home.swift */,
+				77D38C5228077172004EC73D /* Account.swift */,
+				77D38C542807718C004EC73D /* Search.swift */,
+				77D38C56280771A3004EC73D /* MyAds.swift */,
+				77D38C582807737A004EC73D /* AddAd.swift */,
+				77D38C5A28077415004EC73D /* SignIn.swift */,
+				77D38C5C28077426004EC73D /* SignUp.swift */,
+				77D38C6028078C57004EC73D /* InlineWeb.swift */,
+				779C38092807C1E200AAB38A /* ForgetPassword.swift */,
+				772BE89A280AD85200654213 /* EditAccount.swift */,
+				772BE89C280ADAB800654213 /* ChangePassword.swift */,
+				772BE8B2280B6D2C00654213 /* MapView.swift */,
+				77F7844E280BC45700ABF30C /* AdDetail.swift */,
+				77EBBFE6280C4DC300D98BA0 /* AdFilter.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77B086972802C03B00703C60 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				77228AE6280A1C760004E419 /* SignUpViewModel.swift */,
+				77228AEA280A28A30004E419 /* LocationViewModel.swift */,
+				77228AEC280A5D340004E419 /* AccountViewModel.swift */,
+				772BE8A8280B4E8200654213 /* AdViewModel.swift */,
+				77F7844C280BB97300ABF30C /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		77B086982802C04800703C60 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				779C38112809FABD00AAB38A /* API.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		77B0869F28034BBF00703C60 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				77B0869D28034BA900703C60 /* SceneDelegate.swift */,
+				77D38C4128063CD5004EC73D /* ImageLoader.swift */,
+				77D38C622807A078004EC73D /* Constants.swift */,
+				77228AE4280A13720004E419 /* ValidationError.swift */,
+				77228AE8280A20220004E419 /* StringExtension.swift */,
+				772BE8A4280B423B00654213 /* AuthService.swift */,
+				77EBBFE8280C73E800D98BA0 /* AppState.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77825A1428016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77825A3928016BD700B4EBAE /* Build configuration list for PBXNativeTarget "COLOMBO-BSCCOMP-PT-202-013" */;
+			buildPhases = (
+				77825A1128016BCE00B4EBAE /* Sources */,
+				77825A1228016BCE00B4EBAE /* Frameworks */,
+				77825A1328016BCE00B4EBAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "COLOMBO-BSCCOMP-PT-202-013";
+			packageProductDependencies = (
+				77D38C4628076324004EC73D /* FirebaseAuth */,
+				77D38C4828076324004EC73D /* FirebaseDatabase */,
+				77D38C4A28076324004EC73D /* FirebaseFirestore */,
+				77D38C4C28076324004EC73D /* FirebaseFirestoreSwift-Beta */,
+				77D38C4E28076324004EC73D /* FirebaseStorage */,
+			);
+			productName = "COLOMBO-BSCCOMP-PT-202-013";
+			productReference = 77825A1528016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013.app */;
+			productType = "com.apple.product-type.application";
+		};
+		77825A2428016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77825A3C28016BD700B4EBAE /* Build configuration list for PBXNativeTarget "COLOMBO-BSCCOMP-PT-202-013Tests" */;
+			buildPhases = (
+				77825A2128016BD700B4EBAE /* Sources */,
+				77825A2228016BD700B4EBAE /* Frameworks */,
+				77825A2328016BD700B4EBAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77825A2728016BD700B4EBAE /* PBXTargetDependency */,
+			);
+			name = "COLOMBO-BSCCOMP-PT-202-013Tests";
+			productName = "COLOMBO-BSCCOMP-PT-202-013Tests";
+			productReference = 77825A2528016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		77825A2E28016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77825A3F28016BD700B4EBAE /* Build configuration list for PBXNativeTarget "COLOMBO-BSCCOMP-PT-202-013UITests" */;
+			buildPhases = (
+				77825A2B28016BD700B4EBAE /* Sources */,
+				77825A2C28016BD700B4EBAE /* Frameworks */,
+				77825A2D28016BD700B4EBAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77825A3128016BD700B4EBAE /* PBXTargetDependency */,
+			);
+			name = "COLOMBO-BSCCOMP-PT-202-013UITests";
+			productName = "COLOMBO-BSCCOMP-PT-202-013UITests";
+			productReference = 77825A2F28016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77825A0D28016BCE00B4EBAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					77825A1428016BCE00B4EBAE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					77825A2428016BD700B4EBAE = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 77825A1428016BCE00B4EBAE;
+					};
+					77825A2E28016BD700B4EBAE = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 77825A1428016BCE00B4EBAE;
+					};
+				};
+			};
+			buildConfigurationList = 77825A1028016BCE00B4EBAE /* Build configuration list for PBXProject "COLOMBO-BSCCOMP-PT-202-013" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 77825A0C28016BCE00B4EBAE;
+			packageReferences = (
+				77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 77825A1628016BCE00B4EBAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				77825A1428016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013 */,
+				77825A2428016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013Tests */,
+				77825A2E28016BD700B4EBAE /* COLOMBO-BSCCOMP-PT-202-013UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77825A1328016BCE00B4EBAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77B0869A2802C04800703C60 /* LaunchScreen.storyboard in Resources */,
+				77D38C51280768F3004EC73D /* GoogleService-Info.plist in Resources */,
+				77825A2028016BD700B4EBAE /* Preview Assets.xcassets in Resources */,
+				77825A1D28016BD700B4EBAE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77825A2328016BD700B4EBAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77825A2D28016BD700B4EBAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		77825A1128016BCE00B4EBAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77D38C552807718C004EC73D /* Search.swift in Sources */,
+				77F7844F280BC45700ABF30C /* AdDetail.swift in Sources */,
+				77D38C44280643A6004EC73D /* AsyncImage.swift in Sources */,
+				77825A1B28016BCE00B4EBAE /* ContentView.swift in Sources */,
+				77228AEB280A28A30004E419 /* LocationViewModel.swift in Sources */,
+				774A32F1280604A50003A6E8 /* AdCard.swift in Sources */,
+				779C38102809F8CF00AAB38A /* SignInViewModel.swift in Sources */,
+				77D38C6128078C57004EC73D /* InlineWeb.swift in Sources */,
+				77D38C592807737A004EC73D /* AddAd.swift in Sources */,
+				77228AE5280A13720004E419 /* ValidationError.swift in Sources */,
+				772BE8B3280B6D2C00654213 /* MapView.swift in Sources */,
+				77F7844D280BB97300ABF30C /* AuthViewModel.swift in Sources */,
+				77D38C5F2807776A004EC73D /* ThemeTextField.swift in Sources */,
+				77D38C632807A078004EC73D /* Constants.swift in Sources */,
+				77D38C4228063CD5004EC73D /* ImageLoader.swift in Sources */,
+				772BE8A9280B4E8200654213 /* AdViewModel.swift in Sources */,
+				77B0869C28034A8500703C60 /* Home.swift in Sources */,
+				772BE8A7280B472800654213 /* ImagePicker.swift in Sources */,
+				77EBBFE7280C4DC400D98BA0 /* AdFilter.swift in Sources */,
+				77D38C5B28077415004EC73D /* SignIn.swift in Sources */,
+				77228AE7280A1C760004E419 /* SignUpViewModel.swift in Sources */,
+				77EBBFE9280C73E800D98BA0 /* AppState.swift in Sources */,
+				772BE8A5280B423B00654213 /* AuthService.swift in Sources */,
+				77D38C5328077172004EC73D /* Account.swift in Sources */,
+				779C38122809FABD00AAB38A /* API.swift in Sources */,
+				77825A1928016BCE00B4EBAE /* COLOMBO_BSCCOMP_PT_202_013App.swift in Sources */,
+				772BE89F280B33B600654213 /* SearchBar.swift in Sources */,
+				779C380A2807C1E200AAB38A /* ForgetPassword.swift in Sources */,
+				779C380C2809F6DD00AAB38A /* User.swift in Sources */,
+				772BE89D280ADAB800654213 /* ChangePassword.swift in Sources */,
+				772BE89B280AD85200654213 /* EditAccount.swift in Sources */,
+				77D38C57280771A3004EC73D /* MyAds.swift in Sources */,
+				77228AE9280A20220004E419 /* StringExtension.swift in Sources */,
+				77D38C5D28077427004EC73D /* SignUp.swift in Sources */,
+				779C380E2809F74F00AAB38A /* Ad.swift in Sources */,
+				77228AED280A5D340004E419 /* AccountViewModel.swift in Sources */,
+				772BE8A3280B40EC00654213 /* AccessDenied.swift in Sources */,
+				77B0869E28034BA900703C60 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77825A2128016BD700B4EBAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77825A2A28016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77825A2B28016BD700B4EBAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77825A3628016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITestsLaunchTests.swift in Sources */,
+				77825A3428016BD700B4EBAE /* COLOMBO_BSCCOMP_PT_202_013UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		77825A2728016BD700B4EBAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77825A1428016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013 */;
+			targetProxy = 77825A2628016BD700B4EBAE /* PBXContainerItemProxy */;
+		};
+		77825A3128016BD700B4EBAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77825A1428016BCE00B4EBAE /* COLOMBO-BSCCOMP-PT-202-013 */;
+			targetProxy = 77825A3028016BD700B4EBAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		77825A3728016BD700B4EBAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		77825A3828016BD700B4EBAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		77825A3A28016BD700B4EBAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"COLOMBO-BSCCOMP-PT-202-013/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "COLOMBO-BSCCOMP-PT-202-013/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NIBM Broker";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow to find nearby ads and create ads";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lk.fazil.COLOMBO-BSCCOMP-PT-202-013";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		77825A3B28016BD700B4EBAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"COLOMBO-BSCCOMP-PT-202-013/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "COLOMBO-BSCCOMP-PT-202-013/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NIBM Broker";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow to find nearby ads and create ads";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lk.fazil.COLOMBO-BSCCOMP-PT-202-013";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		77825A3D28016BD700B4EBAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lk.fazil.COLOMBO-BSCCOMP-PT-202-013Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COLOMBO-BSCCOMP-PT-202-013.app/COLOMBO-BSCCOMP-PT-202-013";
+			};
+			name = Debug;
+		};
+		77825A3E28016BD700B4EBAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lk.fazil.COLOMBO-BSCCOMP-PT-202-013Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COLOMBO-BSCCOMP-PT-202-013.app/COLOMBO-BSCCOMP-PT-202-013";
+			};
+			name = Release;
+		};
+		77825A4028016BD700B4EBAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lk.fazil.COLOMBO-BSCCOMP-PT-202-013UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "COLOMBO-BSCCOMP-PT-202-013";
+			};
+			name = Debug;
+		};
+		77825A4128016BD700B4EBAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lk.fazil.COLOMBO-BSCCOMP-PT-202-013UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "COLOMBO-BSCCOMP-PT-202-013";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77825A1028016BCE00B4EBAE /* Build configuration list for PBXProject "COLOMBO-BSCCOMP-PT-202-013" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77825A3728016BD700B4EBAE /* Debug */,
+				77825A3828016BD700B4EBAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77825A3928016BD700B4EBAE /* Build configuration list for PBXNativeTarget "COLOMBO-BSCCOMP-PT-202-013" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77825A3A28016BD700B4EBAE /* Debug */,
+				77825A3B28016BD700B4EBAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77825A3C28016BD700B4EBAE /* Build configuration list for PBXNativeTarget "COLOMBO-BSCCOMP-PT-202-013Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77825A3D28016BD700B4EBAE /* Debug */,
+				77825A3E28016BD700B4EBAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77825A3F28016BD700B4EBAE /* Build configuration list for PBXNativeTarget "COLOMBO-BSCCOMP-PT-202-013UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77825A4028016BD700B4EBAE /* Debug */,
+				77825A4128016BD700B4EBAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77D38C4628076324004EC73D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		77D38C4828076324004EC73D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		77D38C4A28076324004EC73D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		77D38C4C28076324004EC73D /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		77D38C4E28076324004EC73D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77D38C4528076324004EC73D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 77825A0D28016BCE00B4EBAE /* Project object */;
+}
